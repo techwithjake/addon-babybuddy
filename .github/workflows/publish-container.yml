@@ -1,8 +1,6 @@
 name: "Publish Container"
 
-on:
-  release:
-    types: [published]
+on: workflow_dispatch
 
 jobs:
   aarch64:
