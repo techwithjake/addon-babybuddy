@@ -18,6 +18,11 @@ server {
 
         proxy_pass http://backend;
 
-        absolute_redirect off
+        absolute_redirect off;
+ 
+    {{ if .remoteuser }}
+        proxy_set_header X-Remote-User '{{ .remoteuser }}';
+    {{- end }}
+        proxy_hide_header x-frame-options; # X-Frame denied by default
     }
 }
